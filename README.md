@@ -1,3 +1,5 @@
+##作者: 蔡鹏飞
+
 ## 使用说明:
 npm run start: 运行本地开发环境
 
@@ -19,3 +21,5 @@ npm set registry http://npm.corp.rs.com:4873/
 
 ### 启动api服务器
 npm run api
+
+### 其他说明

@@ -7,16 +7,15 @@ import _ from 'lodash';
 import CommonFun from '../components/util/utils';//公共方法
 
 function checkStatus(response) {
+  const error = new Error(response.statusText);
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else if (response.status >= 500) {
     CommonFun.showNotificationBox('warning', '请求出错，请稍后再试！');
-    var error = new Error(response.statusText);
     error.response = response;
     throw error;
   } else {
     CommonFun.showNotificationBox('warning', '服务器忙，请稍后再试！');
-    var error = new Error(response.statusText);
     error.response = response;
     throw error;
   }
@@ -69,7 +68,7 @@ export default class Http {
     })
   }
 
-  static post(url, options = {}) {
+  static post(url, options = {},_optionHeader = {}) {
     let iframeHref = window.location.href;
     if (iframeHref.indexOf("token=") != -1) {
       let _token = iframeHref.substring(iframeHref.indexOf("token=") + 6, iframeHref.indexOf("#"));
@@ -79,6 +78,7 @@ export default class Http {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ..._optionHeader
         //"x-auth-token": sessionStorage.getItem("_token")
         //"x-auth-token": "85f2d5b7-33dd-45b5-aeca-e73e2d2e7dd8"
       },
@@ -88,7 +88,6 @@ export default class Http {
     if (options) {
       _options.body = JSON.stringify(options);
     }
-    console.log(_options);
     return new Promise((resovle, reject)=> {
       fetch(url, _options)
         .then(checkStatus)

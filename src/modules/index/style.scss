@@ -2,3 +2,61 @@
   font-size: 23px;
   background: url("../../imgs/favicon.png");
 }
+.comment_wrap{
+  padding:0 20px;
+  .title{
+    width:100%;
+    height:50px;
+    border-bottom:1px solid #ccc;
+    padding-top:20px;
+    color:#000;
+  }
+  .formWrap{
+    padding:24px 0 0 0;
+    width:100%;
+    .search_item{
+      width:200px;
+      margin-right:20px;
+      margin-bottom:10px;
+    }
+  }
+  .operationBtn{
+    margin-right:10px;
+  }
+}
+.input_item{
+  margin-bottom: 16px;
+  label{
+    width:80px;
+    float: left;
+  }
+  input{
+    margin-left:15px;
+  }
+  p{
+    width:calc(100% - 80px);
+    float: left;
+  }
+}
+.input_item:after{
+  content:'';
+  display: block;
+  height:0;
+  overflow: hidden;
+  clear: both;
+  visibility: hidden;
+}
+.lookModal .ant-modal-footer button:nth-child(2){
+  display: none;
+}
+.error_mes{
+  position: absolute;
+  bottom:-16px;
+  left:72px;
+  color:red;
+  display: none;
+}
+.column_inline{
+  fixed:true;
+  max-width:300px;
+}

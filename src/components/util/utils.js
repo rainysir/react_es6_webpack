@@ -47,8 +47,8 @@ export default {
    * @returns {*}
      */
   dateFormat(str,d) {
-    if(!d || d==null || typeof(d) == "undefined" || d == ""){  //如果日期为空，自动获取当前日期
-      d = new Date();
+    if(!d){  //如果日期为空，自动获取当前日期
+      d = new Date(d);
     }else if(d.constructor!=Date){//如果参数不是一个日期对象，自动获取当前日期
       d = new Date(d);
     }

@@ -1,11 +1,11 @@
 import React from 'react';
+import './style.scss';
 import ReactDom, {render} from 'react-dom';
 import { Router, Route} from 'react-router';
 import { HashRouter } from 'react-router-dom';
-import 'antd/dist/antd.css'
 import {Layout1} from '../../components/layout';
 import createBrowserHistory from 'history/createBrowserHistory';
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 
 class Routers extends React.Component {
   render() {
@@ -14,14 +14,18 @@ class Routers extends React.Component {
         <div>
           <Route path="/" component={Layout1}>
           </Route>
-          <Route path="/sample" component={require('react-proxy-loader!./Sample')}>
+          <Route path="/object" component={require('react-proxy-loader!./object/comment')}>
           </Route>
-          <Route path="/accountList" component={require('react-proxy-loader!../sub_account/account_form')}>
+          <Route path="/label" component={require('react-proxy-loader!./label/label')}>
           </Route>
-          <Route path="/test" component={require('react-proxy-loader!../sub_account/test')}>
+          <Route path="/review" component={require('react-proxy-loader!./review/review')}>
           </Route>
-          <Route path="/Permission/:id/:name" component={require('react-proxy-loader!../sub_account/Permission')}>
+          <Route path="/result" component={require('react-proxy-loader!./result/result')}>
           </Route>
+          <Route path="/reply" component={require('react-proxy-loader!./reply/reply')}>
+          </Route>
+          <Route path="/shared" component={require('react-proxy-loader!./shared/shared')}/>
+          <Route path="/suggestion" component={require('react-proxy-loader!./suggestion/suggestion')}/>
         </div>
       </HashRouter>
     )
